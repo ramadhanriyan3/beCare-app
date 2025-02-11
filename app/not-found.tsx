@@ -10,7 +10,7 @@ const NotFound = () => {
       <p className="font-bold text-3xl text-green-500">Not Found</p>
       <Link
         href="/"
-        className="py-2 px-4 my-10 bg-green-500 hover:bg-green-400 rounded-full"
+        className="text-white font-semibold py-2 px-4 my-10 bg-green-500 hover:bg-green-400 rounded-full"
       >
         Back to Home
       </Link>

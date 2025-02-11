@@ -19,7 +19,13 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { FormFieldType } from "@/types/formField.types";
-import { Select, SelectValue, SelectContent, SelectTrigger } from "./ui/select";
+import {
+  Select,
+  SelectValue,
+  SelectContent,
+  SelectTrigger,
+  SelectGroup,
+} from "./ui/select";
 import { Textarea } from "./ui/textarea";
 import { Checkbox } from "./ui/checkbox";
 
@@ -137,7 +143,7 @@ const RenderField = ({
               <SelectValue placeholder={placeholder} />
             </SelectTrigger>
             <SelectContent className="shad-select-content">
-              {props.children}
+              <SelectGroup>{props.children}</SelectGroup>
             </SelectContent>
           </Select>
         </FormControl>
