@@ -76,3 +76,22 @@ export function encryptKey(passkey: string) {
 export function decryptKey(passkey: string) {
   return atob(passkey);
 }
+
+export function getMessege(
+  date: string | Date,
+  doctorName: string,
+  name: string,
+  type: "schedule" | "cancel" | "pending" | string,
+  cancellationReason: string
+) {
+  const schedule = formatDateTime(date);
+
+  let text = "";
+  if (type === "schedule") {
+    text = `Dear ${name},\n\nYour appointment has been successfully scheduled with Dr. ${doctorName}.\n\n📅 Date: ${schedule.dateDay}\n⏰ Time: ${schedule.timeOnly}\n\nIf you need to reschedule or have any questions, please contact us.\n\nBest regards,\nbeCare`;
+  } else if (type === "cancel") {
+    text = `Dear ${name},\n\nWe regret to inform you that your appointment with Dr. ${doctorName}, scheduled for:\n\n📅 Date: ${schedule.dateDay}\n⏰ Time: ${schedule.timeOnly}\n\nhas been canceled because ${cancellationReason}. If you would like to reschedule, please contact us.\n\nWe apologize for any inconvenience and appreciate your understanding.\n\nBest regards,\nbeCare`;
+  }
+
+  return text;
+}

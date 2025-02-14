@@ -1,11 +1,14 @@
 import PatientForm from "@/components/forms/patientForm";
+import { OtpModal } from "@/components/otpModal";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
+export default async function Home({ searchParams }: SearchParamProps) {
+  const isAdmin = (await searchParams).admin === "true";
+
   return (
     <div className="flex h-screen max-h-screen">
-      {/* TODO: OTP */}
+      {isAdmin && <OtpModal />}
       <section className="remove-scrollbar container">
         <div className="sub-container max-w-[496px] flex-1 ">
           <div className="flex gap-x-1  items-center mb-12">

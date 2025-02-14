@@ -266,7 +266,7 @@ input:-webkit-autofill:active {
   }
 
   .shad-otp {
-    @apply w-full flex justify-between !important;
+    @apply w-full flex justify-around !important;
   }
 
   .shad-otp-slot {

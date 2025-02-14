@@ -1,8 +1,17 @@
+// import { getAppointmnet } from "@/actions/appointment.action";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
-const AppointmentSuccessPage = () => {
+const AppointmentSuccessPage = async ({
+  params,
+  searchParams,
+}: SearchParamProps) => {
+  const { userId } = await params;
+  const appointmentId = ((await searchParams)?.appointmentId as string) || "";
+  // const appointment = await getAppointmnet(appointmentId)
+
+  console.log({ appointmentId, userId });
   return (
     <div
       className={
@@ -58,7 +67,9 @@ const AppointmentSuccessPage = () => {
           </div>
         </section>
         <Button className="shad-primary-btn" variant={"outline"} asChild>
-          <Link href={"#"}>New Appointment</Link>
+          <Link href={`/patients/${userId}/new-appointment`}>
+            New Appointment
+          </Link>
         </Button>
 
         <p className="justify-items-end text-dark-600 xl:text-left">
